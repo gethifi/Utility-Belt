@@ -286,22 +286,35 @@ class NgpDonation {
      * Generate XML payload
      * @return string
      */
-    protected function generateXml() {
+    public function generateXml() {
         $xml = '<PostVerisignTransaction>';
         $xml .= '<ContactInfo>';
         foreach ( $this->contributorFields as $name => $defaultValue ) {
             if ( is_bool($this->allFields[$name]) ) {
                 $this->allFields[$name] = $this->allFields[$name] ? 'true' : 'false';
             }
-            $xml .= sprintf('<%s>%s</%s>', $name, $this->allFields[$name], $name);
+            if ( !empty($this->allFields[$name]) ) {
+                $xml .= sprintf('<%s>%s</%s>', $name, $this->allFields[$name], $name);
+            } else {
+                $xml .= sprintf('<%s/>', $name);
+            }
         }
         $xml .= '</ContactInfo>';
         $xml .= '<ContributionInfo>';
         foreach ( $this->contributionFields as $name => $defaultValue ) {
+            if ( $name === 'RecurringTerm' || $name === 'RecurringPeriod' ) {
+                if ( empty($this->allFields['RecurringContrib']) || $this->allFields['RecurringContrib'] === 'false' ) {
+                    continue;
+                }
+            }
             if ( is_bool($this->allFields[$name]) ) {
                 $this->allFields[$name] = $this->allFields[$name] ? 'true' : 'false';
             }
-            $xml .= sprintf('<%s>%s</%s>', $name, $this->allFields[$name], $name);
+            if ( !empty($this->allFields[$name]) ) {
+                $xml .= sprintf('<%s>%s</%s>', $name, $this->allFields[$name], $name);
+            } else {
+                $xml .= sprintf('<%s/>', $name);
+            }
         }
         $xml .= '</ContributionInfo>';
         $xml .= '<VerisignInfo>';
@@ -309,7 +322,11 @@ class NgpDonation {
             if ( is_bool($this->allFields[$name]) ) {
                 $this->allFields[$name] = $this->allFields[$name] ? 'true' : 'false';
             }
-            $xml .= sprintf('<%s>%s</%s>', $name, $this->allFields[$name], $name);
+            if ( !empty($this->allFields[$name]) ) {
+                $xml .= sprintf('<%s>%s</%s>', $name, $this->allFields[$name], $name);
+            } else {
+                $xml .= sprintf('<%s/>', $name);
+            }
         }
         $xml .= '</VerisignInfo>';
         $xml .= '</PostVerisignTransaction>';
