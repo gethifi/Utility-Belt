@@ -42,12 +42,12 @@ class NgpDonation {
     /**
      * @var string Provided by NGP
      */
-    protected static $credentials;
+    protected $credentials;
 
     /**
      * @var string Send email to contributor after donation accepted?
      */
-    protected static $sendEmail;
+    protected $sendEmail;
 
     /**
      * @var array[String] Case sensitive!
