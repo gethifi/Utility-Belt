@@ -6,14 +6,14 @@ JS script to redirect first time visitors to a separate splash page. The cookie 
 
 This script should be included near the top of the `head` in the index.html template so users are redirected before most of the page elements are loaded. It should be added on each page where users should be redirected from (generally all but contribution pages).
 
-jQuery is not needed.
+jQuery is not needed, so it's best to avoid using it on the splash page in order to keep the page weight down.
 
 The first argument is the cookie name. The second is the path to the splash page.
 
 ```html
 {% js 'NMC-splash.js' min %}
 <script>
-    NMC.util.Splash.baseSetup("splash-new","/welcome");
+    NMC.util.Splash.baseSetup("_splash-new","/welcome");
 </script>
 ```
 
@@ -28,6 +28,6 @@ The first argument is the cookie name.
 ```html
 {% js 'NMC-splash.js' min %}
 <script>
-    NMC.util.Splash.splashSetup("splash-new");
+    NMC.util.Splash.splashSetup("_splash-new");
 </script>
 ```
