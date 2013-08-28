@@ -58,7 +58,7 @@ NMC.util.Splash = (function () {
     return {
         baseSetup: function(cookieName, splashURL) {
             if (!(getCookie(cookieName))) {
-                createCookie("splash-entrance", window.location.pathname, daysBeforeCookieExpires);
+                createCookie("_splash-entrance", window.location.pathname, daysBeforeCookieExpires);
                 window.location = splashURL;
             }
         },
@@ -68,8 +68,8 @@ NMC.util.Splash = (function () {
             }
             var link = document.getElementById('splash-continue');
             createCookie(cookieName, true, daysBeforeCookieExpires);
-            if (!(readCookie("splash-entrance") === null)) {
-                link.href = readCookie("splash-entrance");
+            if (!(readCookie("_splash-entrance") === null)) {
+                link.href = readCookie("_splash-entrance");
             } else {
                 link.href = "/";
             }
