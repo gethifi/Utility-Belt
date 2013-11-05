@@ -13,7 +13,7 @@ The first argument is the cookie name. The second is the path to the splash page
 ```html
 {% js 'NMC-splash.js' min %}
 <script>
-    NMC.util.Splash.baseSetup("_splash-new","/welcome");
+    NMC.Splash.baseSetup("_splash-new","/welcome");
 </script>
 ```
 
@@ -28,6 +28,6 @@ The first argument is the cookie name.
 ```html
 {% js 'NMC-splash.js' min %}
 <script>
-    NMC.util.Splash.splashSetup("_splash-new");
+    NMC.Splash.splashSetup("_splash-new");
 </script>
 ```
