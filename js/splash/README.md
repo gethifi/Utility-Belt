@@ -1,6 +1,6 @@
 ## NMC Splash
 
-JS script to redirect first time visitors to a separate splash page. The cookie is set to expire after 30 days.
+JS script to redirect first time visitors to a separate splash page. The cookie is set to expire after 30 days, but can be changed with the `daysBeforeCookieExpires` variable.
 
 ### Index template (/index.html)
 
