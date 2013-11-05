@@ -8,7 +8,7 @@
 
 var NMC = NMC || {};
 
-NMC.util.Splash = (function () {
+NMC.Splash = (function () {
 
     "use strict";
 
