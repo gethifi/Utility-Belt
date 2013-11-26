@@ -43,7 +43,7 @@
  *          'Zip' => '12345'
  *     )
  * );
- * if ( $v->save() ( {
+ * if ( $v->save() ) {
  *     //Success!
  * } else if ( $v->hasErrors() ) {
  *     $errors = $v->getErrors();
